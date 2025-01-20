@@ -23,7 +23,7 @@ public class BuyStepdefs {
     }
 
     @When("I buy {string} with quantity {int}")
-    public void i_buy_with_quantity(String name, int quantity) {
+    public void i_buy_with_quantity(String name, int quantity) throws Exception {
         Product prod = catalog.getProduct(name);
         order.addItem(prod, quantity);
     }
@@ -32,5 +32,8 @@ public class BuyStepdefs {
     public void total_should_be(double total) {
         assertEquals(total, order.getTotal());
     }
+
+//    @Then("The product out of stock")
+//    public void the_product_out_of_stock(Product prod, int quantity) throws Exception {order.addItem(prod,quantity);}
 }
 
